@@ -20,7 +20,7 @@ export function ResultCards({ result }: ResultCardsProps) {
       label: 'CONFIDENCE',
       value: `${Math.round(p.confidence_score * 100)}%`,
       detail: 'Affidabilità buona',
-      color: '#3b82f6',
+      color: '#10b981',
     },
     {
       label: 'SEVERITÀ',

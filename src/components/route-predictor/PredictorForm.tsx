@@ -136,7 +136,7 @@ export function PredictorForm({
   return (
     <div className="max-w-[800px] mx-auto">
       <div className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-7 overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-500 to-emerald-500" />
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 to-cyan-500" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -188,7 +188,7 @@ export function PredictorForm({
               : 'bg-gradient-to-r from-primary-500 to-primary-700 cursor-pointer hover:shadow-lg hover:shadow-primary-500/25'
           }`}
         >
-          {loading ? '⏳ Analisi in corso...' : '🛰️ Analizza Percorso'}
+          {loading ? '⏳ Analisi in corso...' : '🚛 Analizza Percorso'}
         </button>
       </div>
     </div>

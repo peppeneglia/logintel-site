@@ -1,42 +1,40 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const steps = [
-  { icon: '📍', title: 'Inserisci la rotta', desc: 'Partenza, destinazione e orario di partenza. Il sistema calcola il percorso ottimale.' },
-  { icon: '🛰️', title: 'Analisi meteo lungo il percorso', desc: 'Ogni 50km campioniamo le condizioni meteo previste all\'ora di transito del veicolo.' },
-  { icon: '⚡', title: 'Predizione + alternativa', desc: 'Ritardo stimato con confidence score, più una rotta alternativa se conviene.' },
+  { icon: '📍', title: 'Inserisci la rotta', desc: 'Origine, destinazione e orario. Da form o dalla chat.' },
+  { icon: '🛰️', title: 'Analisi meteo lungo il percorso', desc: 'Il sistema analizza le condizioni meteo previste lungo ogni km del percorso.' },
+  { icon: '⚡', title: 'Predizione + alternativa', desc: 'Ricevi il ritardo in minuti, il confidence score e la rotta alternativa migliore.' },
 ]
 
-const comparisons = [
-  { feature: 'Predizione ritardo route-specific', us: true, meteo: false, gps: false, traffic: false },
-  { feature: 'Meteo lungo il percorso (non generico)', us: true, meteo: false, gps: false, traffic: false },
-  { feature: 'Rotte alternative con confronto tempi', us: true, meteo: false, gps: false, traffic: true },
-  { feature: 'Confidence score per ogni predizione', us: true, meteo: false, gps: false, traffic: false },
-  { feature: 'Calibrazione con feedback reale', us: true, meteo: false, gps: false, traffic: false },
-  { feature: 'Integrazione API in 30 minuti', us: true, meteo: true, gps: false, traffic: true },
+const modules = [
+  { icon: '📍', title: 'Route Intelligence', desc: 'Predizioni meteo-correlate, rotte alternative, confronto percorsi e report ETA realistici.', color: '#10b981', ready: true },
+  { icon: '🚛', title: 'Fleet Intelligence', desc: 'Gestione veicoli, manutenzione preventiva e allocazione risorse della flotta.', color: '#06b6d4', ready: false },
+  { icon: '📦', title: 'Delivery Intelligence', desc: 'Ottimizzazione consegne e tracking ultimo miglio.', color: '#06b6d4', ready: false },
+  { icon: '📋', title: 'Compliance Intelligence', desc: 'Monitoraggio ore di guida, riposi e normative europee.', color: '#06b6d4', ready: false },
+  { icon: '💰', title: 'Finance Intelligence', desc: 'Analisi costi carburante, pedaggi e margini per rotta.', color: '#06b6d4', ready: false },
+  { icon: '🌱', title: 'Carbon Intelligence', desc: 'Calcolo e ottimizzazione dell\'impronta CO₂ per trasporto.', color: '#06b6d4', ready: false },
 ]
 
 const trustCards = [
-  { icon: '🛰️', title: 'Predittivo, non reattivo', desc: 'Non ti diciamo il meteo. Ti diciamo quanto ritardo avrai e cosa fare.' },
-  { icon: '📡', title: 'Zero hardware', desc: 'API pura. Niente dispositivi da installare sui veicoli. Si integra con i tuoi sistemi.' },
-  { icon: '⚡', title: 'Integrazione in 30 min', desc: 'REST API con documentazione completa. Un endpoint, una predizione.' },
-  { icon: '🎯', title: 'Calibrazione continua', desc: 'Il sistema impara dai feedback reali e migliora le predizioni nel tempo.' },
+  { icon: '🛰️', title: 'Predittivo, non reattivo', desc: 'Non ti diciamo che piove. Ti diciamo 25 minuti di ritardo al km 234 e cosa fare.' },
+  { icon: '📡', title: 'Zero hardware', desc: 'Apri il browser e hai tutto. Niente dispositivi, niente installazioni, niente IT.' },
+  { icon: '⚡', title: 'Risultati in 30 secondi', desc: 'Inserisci la rotta, ricevi la predizione. Nessuna configurazione.' },
+  { icon: '🎯', title: 'Calibrazione continua', desc: 'Il sistema impara dai feedback reali e migliora le predizioni settimana dopo settimana.' },
 ]
 
 export function HomePage() {
-  const [activeTab, setActiveTab] = useState(0)
-
   useEffect(() => {
-    document.title = 'Logintel — Predizioni Meteo per il Trasporto Merci'
+    document.title = 'Logintel — L\'assistente intelligente del fleet manager europeo'
   }, [])
 
   return (
     <div>
       {/* ═══ HERO ═══ */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-dark pt-[120px] pb-20 px-6"
-        style={{ background: 'radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.12) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(16,185,129,0.08) 0%, transparent 60%), #0f172a' }}>
+        style={{ background: 'radial-gradient(ellipse at 30% 20%, rgba(16,185,129,0.12) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(6,182,212,0.08) 0%, transparent 60%), #0f172a' }}>
         {/* Grid bg */}
-        <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(16,185,129,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.03) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
         <div className="max-w-[900px] text-center relative z-10">
           {/* Badge */}
@@ -46,22 +44,28 @@ export function HomePage() {
           </div>
 
           <h1 className="text-[clamp(36px,5vw,64px)] font-extrabold text-slate-100 leading-[1.1] mb-6 font-outfit tracking-tight">
-            Il futuro della logistica è{' '}
-            <span className="bg-gradient-to-r from-primary-500 to-emerald-500 bg-clip-text text-transparent">
-              predittivo
+            L'assistente{' '}
+            <span className="bg-gradient-to-r from-primary-400 to-cyan-500 bg-clip-text text-transparent">
+              intelligente
             </span>
-            , non reattivo
+            {' '}di ogni{' '}
+            <span className="bg-gradient-to-r from-primary-400 to-cyan-500 bg-clip-text text-transparent">
+              fleet manager
+            </span>
+            {' '}europeo
           </h1>
 
           <p className="text-[19px] text-slate-400 max-w-[640px] mx-auto mb-10 leading-relaxed font-outfit">
-            Logintel predice ritardi meteo-correlati lungo il percorso del tuo camion e suggerisce rotte alternative. Prima che il problema accada.
+            Apri il browser, inserisci la rotta, ricevi in 30 secondi il ritardo previsto.
+            <br />
+            Senza installazioni, senza hardware, senza complicazioni.
           </p>
 
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/route-predictor" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(59,130,246,0.3)] hover:shadow-[0_8px_32px_rgba(59,130,246,0.4)] transition-all flex items-center gap-2">
-              Prova il Route Predictor →
+            <Link to="/prodotto" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.4)] transition-all flex items-center gap-2">
+              Scopri il prodotto →
             </Link>
-            <Link to="/come-funziona" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
+            <Link to="/prodotto" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
               Come funziona
             </Link>
           </div>
@@ -69,9 +73,9 @@ export function HomePage() {
           {/* Live stats */}
           <div className="flex justify-center gap-10 mt-16 flex-wrap">
             {[
-              { val: '< 2s', label: 'Tempo risposta API' },
+              { val: '30 sec', label: 'Tempo per una predizione' },
               { val: '72h', label: 'Orizzonte predittivo' },
-              { val: '€0', label: 'Hardware richiesto' },
+              { val: '€0', label: 'Nessun hardware' },
             ].map((s, i) => (
               <div key={i} className="text-center">
                 <div className="text-[28px] font-extrabold text-slate-100 font-outfit">{s.val}</div>
@@ -95,15 +99,15 @@ export function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { icon: '💸', value: '€82-85', unit: '/ora', desc: 'Costo operativo heavy-duty truck in Europa per ogni ora di ritardo', color: '#ef4444' },
-              { icon: '⏱️', value: '€100', unit: '/ora', desc: 'Penali contrattuali in Italia per ritardi oltre 90 minuti al carico/scarico', color: '#f59e0b' },
-              { icon: '📉', value: '€14-18B', unit: '/anno', desc: 'Sprechi evitabili nel mercato logistico europeo da €930 miliardi', color: '#3b82f6' },
+              { icon: '💸', value: '€82-85', unit: '/ora', desc: 'Costo di un truck fermo in Europa. Ogni ora di ritardo costa quanto un intero carico di margine.' },
+              { icon: '⏱️', value: '23%', unit: '', desc: 'Dei ritardi stradali è causato da condizioni meteo. E nessuno lo predice.' },
+              { icon: '📉', value: '€15B', unit: '/anno', desc: 'Perdite nel trasporto europeo per eventi meteorologici. Fonte: Progetto EWENT, UE.' },
             ].map((item, i) => (
               <div key={i} className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-7 overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: item.color }} />
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-red-500" />
                 <div className="text-[32px] mb-4">{item.icon}</div>
                 <div className="flex items-baseline gap-1 mb-2">
-                  <span className="text-4xl font-extrabold font-outfit" style={{ color: item.color }}>{item.value}</span>
+                  <span className="text-4xl font-extrabold font-outfit text-red-500">{item.value}</span>
                   <span className="text-base text-slate-400 font-outfit">{item.unit}</span>
                 </div>
                 <p className="text-slate-400 text-sm leading-relaxed font-outfit">{item.desc}</p>
@@ -117,22 +121,17 @@ export function HomePage() {
       <section className="bg-dark py-24 px-6">
         <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-14">
-            <span className="text-emerald-500 text-[13px] font-bold uppercase tracking-[2px] font-outfit">La soluzione</span>
-            <h2 className="text-[clamp(28px,4vw,44px)] font-extrabold text-slate-100 mt-3 font-outfit tracking-tight">Come funziona in 3 step</h2>
+            <span className="text-primary-400 text-[13px] font-bold uppercase tracking-[2px] font-outfit">La soluzione</span>
+            <h2 className="text-[clamp(28px,4vw,44px)] font-extrabold text-primary-400 mt-3 font-outfit tracking-tight">Come funziona in 3 step</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {steps.map((s, i) => (
               <div
                 key={i}
-                onClick={() => setActiveTab(i)}
-                className={`rounded-2xl p-8 cursor-pointer transition-all duration-300 relative overflow-hidden ${
-                  activeTab === i
-                    ? 'bg-gradient-to-br from-primary-500/10 to-emerald-500/5 border border-primary-500/30'
-                    : 'bg-gradient-to-br from-dark-card to-dark border border-dark-border hover:border-dark-border/80'
-                }`}
+                className="rounded-2xl p-8 relative overflow-hidden bg-gradient-to-br from-dark-card to-dark border border-dark-border"
               >
-                <div className={`absolute top-0 left-0 right-0 h-[3px] transition-all ${activeTab === i ? 'bg-gradient-to-r from-primary-500 to-emerald-500' : 'bg-transparent'}`} />
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 to-cyan-500" />
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-[22px]">{s.icon}</div>
                   <span className="text-sm font-bold text-slate-500 font-outfit">STEP {i + 1}</span>
@@ -145,34 +144,32 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ═══ DIFFERENTIATION TABLE ═══ */}
+      {/* ═══ MODULI VERTICALI ═══ */}
       <section className="bg-[#0c1322] py-24 px-6">
-        <div className="max-w-[900px] mx-auto">
+        <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-14">
-            <span className="text-primary-400 text-[13px] font-bold uppercase tracking-[2px] font-outfit">Differenziazione</span>
-            <h2 className="text-[clamp(28px,4vw,44px)] font-extrabold text-slate-100 mt-3 font-outfit tracking-tight">Nessuno fa quello che facciamo noi</h2>
+            <span className="text-primary-400 text-[13px] font-bold uppercase tracking-[2px] font-outfit">Piattaforma</span>
+            <h2 className="text-[clamp(28px,4vw,44px)] font-extrabold text-slate-100 mt-3 font-outfit tracking-tight">I moduli di Logintel</h2>
           </div>
 
-          <div className="overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0">
-          <div className="bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border overflow-hidden min-w-[600px]">
-            {/* Header */}
-            <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1fr] px-6 py-4 border-b border-dark-border bg-primary-500/5">
-              <div className="text-[13px] font-bold text-slate-500 font-outfit">FEATURE</div>
-              <div className="text-[13px] font-bold text-primary-400 text-center font-outfit">LOGINTEL</div>
-              <div className="text-[13px] font-bold text-slate-500 text-center font-outfit">API Meteo</div>
-              <div className="text-[13px] font-bold text-slate-500 text-center font-outfit">GPS Track</div>
-              <div className="text-[13px] font-bold text-slate-500 text-center font-outfit">API Traffico</div>
-            </div>
-            {comparisons.map((c, i) => (
-              <div key={i} className={`grid grid-cols-[2fr_1fr_1fr_1fr_1fr] px-6 py-3.5 items-center ${i < comparisons.length - 1 ? 'border-b border-dark-border/40' : ''}`}>
-                <div className="text-sm text-slate-100 font-outfit">{c.feature}</div>
-                <div className="text-center text-lg">{c.us ? '✅' : '—'}</div>
-                <div className="text-center text-lg text-slate-500">{c.meteo ? '✅' : '—'}</div>
-                <div className="text-center text-lg text-slate-500">{c.gps ? '✅' : '—'}</div>
-                <div className="text-center text-lg text-slate-500">{c.traffic ? '✅' : '—'}</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {modules.map((item, i) => (
+              <div key={i} className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-7 overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: item.color }} />
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-[32px]">{item.icon}</div>
+                  <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${
+                    item.ready
+                      ? 'bg-primary-500/15 text-primary-400 border-primary-500/25'
+                      : 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20'
+                  }`}>
+                    {item.ready ? 'Attivo' : 'In arrivo'}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-100 mb-2 font-outfit">{item.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed font-outfit">{item.desc}</p>
               </div>
             ))}
-          </div>
           </div>
         </div>
       </section>
@@ -183,7 +180,7 @@ export function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {trustCards.map((item, i) => (
               <div key={i} className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-7 overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-500 to-emerald-500" />
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 to-cyan-500" />
                 <div className="text-[32px] mb-4">{item.icon}</div>
                 <h3 className="text-lg font-bold text-slate-100 mb-2 font-outfit">{item.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed font-outfit">{item.desc}</p>
@@ -194,20 +191,20 @@ export function HomePage() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section className="py-24 px-6 text-center" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.15) 0%, transparent 70%), #0f172a' }}>
+      <section className="py-24 px-6 text-center" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(16,185,129,0.15) 0%, transparent 70%), #0f172a' }}>
         <div className="max-w-[600px] mx-auto">
           <h2 className="text-[clamp(28px,4vw,40px)] font-extrabold text-slate-100 mb-5 font-outfit tracking-tight">
-            Pronto a vedere il futuro della tua rotta?
+            Il primo mese è gratis
           </h2>
           <p className="text-slate-400 text-[17px] mb-9 leading-relaxed font-outfit">
-            Prova il Route Predictor gratuitamente. Nessuna registrazione richiesta.
+            Prova tutti i moduli per 30 giorni. Nessuna carta di credito richiesta.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/route-predictor" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(59,130,246,0.3)] transition-all">
-              Prova il Route Predictor
+            <Link to="/prodotto" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
+              Prova gratis
             </Link>
-            <Link to="/contatti" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
-              Richiedi una demo
+            <Link to="/pricing" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
+              Vedi i piani
             </Link>
           </div>
         </div>

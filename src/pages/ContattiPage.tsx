@@ -8,10 +8,10 @@ function isValidEmail(email: string) {
 }
 
 const infoCards = [
-  { icon: '📧', title: 'Email', detail: 'info@logintel.it', color: '#3b82f6' },
+  { icon: '📧', title: 'Email', detail: 'info@logintel.it', color: '#10b981' },
   { icon: '📍', title: 'Sede', detail: 'Bari, Puglia, Italia', color: '#10b981' },
-  { icon: '🏢', title: 'Programma', detail: 'NextOrbit by Deloitte', color: '#8b5cf6' },
-  { icon: '🚀', title: 'Demo Day', detail: '31 Marzo 2026', color: '#f59e0b' },
+  { icon: '🏢', title: 'Programma', detail: 'NextOrbit by Deloitte', color: '#06b6d4' },
+  { icon: '🚀', title: 'Stato', detail: 'Attivo e operativo', color: '#06b6d4' },
 ]
 
 export function ContattiPage() {
@@ -75,7 +75,7 @@ export function ContattiPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8">
             {/* Form */}
             <div className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-8 overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-500 to-emerald-500" />
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 to-cyan-500" />
 
               {sent ? (
                 <div className="text-center py-10">

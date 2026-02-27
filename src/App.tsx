@@ -4,6 +4,9 @@ import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
 import { HomePage } from './pages/HomePage'
 import { ComeFunzionaPage } from './pages/ComeFunzionaPage'
+import { ProdottoPage } from './pages/ProdottoPage'
+import { PricingPage } from './pages/PricingPage'
+import { ChiSiamoPage } from './pages/ChiSiamoPage'
 import { RoutePredictorPage } from './pages/RoutePredictorPage'
 import { ContattiPage } from './pages/ContattiPage'
 
@@ -22,7 +25,10 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/come-funziona" element={<ComeFunzionaPage />} />
+            <Route path="/prodotto" element={<ProdottoPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/route-intelligence" element={<ComeFunzionaPage />} />
+            <Route path="/chi-siamo" element={<ChiSiamoPage />} />
             <Route path="/route-predictor" element={<RoutePredictorPage />} />
             <Route path="/contatti" element={<ContattiPage />} />
           </Routes>

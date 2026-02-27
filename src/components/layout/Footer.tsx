@@ -9,12 +9,12 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-base">
-                🛰️
+                🚛
               </div>
               <span className="text-lg font-extrabold text-primary-500 font-outfit">Logintel</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Satellite Intelligence per la logistica. Predizioni meteo-correlate per il trasporto merci su strada.
+              L'assistente intelligente del fleet manager europeo. 6 moduli verticali per gestire ogni aspetto della tua flotta.
             </p>
           </div>
 
@@ -22,9 +22,8 @@ export function Footer() {
           <div>
             <h4 className="text-slate-100 text-sm font-bold mb-4 font-outfit">PRODOTTO</h4>
             <div className="space-y-2.5">
-              <Link to="/route-predictor" className="block text-slate-400 text-sm no-underline hover:text-primary-400 transition-colors">Route Predictor</Link>
-              <p className="text-slate-400 text-sm cursor-pointer hover:text-primary-400 transition-colors">API Documentation</p>
-              <p className="text-slate-400 text-sm cursor-pointer hover:text-primary-400 transition-colors">Pricing</p>
+              <Link to="/prodotto" className="block text-slate-400 text-sm no-underline hover:text-primary-400 transition-colors">Logintel App</Link>
+              <Link to="/pricing" className="block text-slate-400 text-sm no-underline hover:text-primary-400 transition-colors">Pricing</Link>
             </div>
           </div>
 
@@ -32,8 +31,7 @@ export function Footer() {
           <div>
             <h4 className="text-slate-100 text-sm font-bold mb-4 font-outfit">AZIENDA</h4>
             <div className="space-y-2.5">
-              <Link to="/come-funziona" className="block text-slate-400 text-sm no-underline hover:text-primary-400 transition-colors">Come Funziona</Link>
-              <p className="text-slate-400 text-sm cursor-pointer hover:text-primary-400 transition-colors">Blog</p>
+              <Link to="/chi-siamo" className="block text-slate-400 text-sm no-underline hover:text-primary-400 transition-colors">Chi Siamo</Link>
               <Link to="/contatti" className="block text-slate-400 text-sm no-underline hover:text-primary-400 transition-colors">Contatti</Link>
             </div>
           </div>
@@ -43,7 +41,7 @@ export function Footer() {
             <h4 className="text-slate-100 text-sm font-bold mb-4 font-outfit">CONTATTI</h4>
             <div className="space-y-2.5">
               <p className="text-slate-400 text-sm">info@logintel.it</p>
-              <p className="text-slate-400 text-sm">Bari, Italia 🇮🇹</p>
+              <p className="text-slate-400 text-sm">Bari, Italia</p>
               <p className="text-slate-400 text-sm">NextOrbit by Deloitte</p>
             </div>
           </div>
@@ -51,7 +49,7 @@ export function Footer() {
 
         <div className="border-t border-dark-border pt-6 flex flex-wrap justify-between items-center gap-3">
           <p className="text-slate-500 text-xs">© 2026 Logintel. Tutti i diritti riservati.</p>
-          <p className="text-slate-500 text-xs">Made with 🛰️ in Puglia</p>
+          <p className="text-slate-500 text-xs">Made with 🚛 in Puglia</p>
         </div>
       </div>
     </footer>

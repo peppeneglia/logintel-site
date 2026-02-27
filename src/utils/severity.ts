@@ -2,7 +2,7 @@ export function severityColor(s: string): string {
   switch (s) {
     case 'high': return '#ef4444'
     case 'moderate': return '#f59e0b'
-    case 'low': return '#3b82f6'
+    case 'low': return '#06b6d4'
     default: return '#10b981'
   }
 }
@@ -11,7 +11,7 @@ export function severityBg(s: string): string {
   switch (s) {
     case 'high': return 'rgba(239,68,68,0.15)'
     case 'moderate': return 'rgba(245,158,11,0.15)'
-    case 'low': return 'rgba(59,130,246,0.15)'
+    case 'low': return 'rgba(6,182,212,0.15)'
     default: return 'rgba(16,185,129,0.15)'
   }
 }
@@ -29,7 +29,7 @@ export function severityTailwind(s: string): string {
   switch (s) {
     case 'high': return 'text-red-500'
     case 'moderate': return 'text-yellow-500'
-    case 'low': return 'text-blue-400'
+    case 'low': return 'text-cyan-400'
     default: return 'text-emerald-500'
   }
 }
@@ -38,7 +38,7 @@ export function severityBorderTailwind(s: string): string {
   switch (s) {
     case 'high': return 'border-red-500/30'
     case 'moderate': return 'border-yellow-500/30'
-    case 'low': return 'border-blue-500/30'
+    case 'low': return 'border-cyan-500/30'
     default: return 'border-slate-700/30'
   }
 }

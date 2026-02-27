@@ -2,22 +2,16 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const pillars = [
-  { icon: '🧠', title: 'Smart Heuristics', desc: 'Non semplici regole if/else. Funzioni multifattoriali che combinano meteo, tipo strada, altitudine, orario e stagione con pesi configurabili.', color: '#3b82f6' },
-  { icon: '🎯', title: 'Confidence Score', desc: 'Ogni predizione ha un punteggio di affidabilità (0-100%) basato su orizzonte temporale, stabilità meteo, storico e completezza dati.', color: '#10b981' },
-  { icon: '📈', title: 'Calibrazione Continua', desc: 'I coefficienti migliorano nel tempo. Il sistema confronta le predizioni con i ritardi reali riportati e aggiusta i parametri settimanalmente.', color: '#f59e0b' },
-  { icon: '💰', title: 'Zero Costi Infrastruttura', desc: 'Solo fonti dati gratuite: Open-Meteo, OpenRouteService. Nessun costo per dati satellitari o licenze. Il valore è nella nostra logica.', color: '#8b5cf6' },
+  { icon: '🧠', title: 'Smart Heuristics', desc: 'Non un punto meteo generico, ma l\'analisi di ogni segmento del tuo percorso. Precipitazioni, vento, visibilità, altitudine, tipo di strada e orario combinati.', color: '#10b981' },
+  { icon: '🎯', title: 'Confidence Score', desc: 'Ogni predizione ha un punteggio 0-100% che ti dice quanto fidarti. Basato su orizzonte temporale, stabilità meteo e completezza dati.', color: '#10b981' },
+  { icon: '📈', title: 'Calibrazione Continua', desc: 'I coefficienti migliorano nel tempo. Il sistema confronta le predizioni con i ritardi reali riportati e aggiusta i parametri settimanalmente.', color: '#10b981' },
+  { icon: '🌐', title: 'Fonti dati aperte', desc: 'Open-Meteo per il meteo, OpenRouteService per i percorsi, Open-Elevation per l\'altimetria. Dati affidabili, zero licenze.', color: '#10b981' },
 ]
 
 const flowSteps = [
-  { num: '1', label: 'Ricezione richiesta', icon: '📥' },
-  { num: '2', label: 'Calcolo percorso', icon: '🗺️' },
-  { num: '3', label: 'Campionamento punti', icon: '📍' },
-  { num: '4', label: 'Dati meteo per punto', icon: '🌦️' },
-  { num: '5', label: 'Arricchimento contesto', icon: '🏔️' },
-  { num: '6', label: 'Applicazione heuristics', icon: '🧠' },
-  { num: '7', label: 'Confidence score', icon: '🎯' },
-  { num: '8', label: 'Rotte alternative', icon: '🔀' },
-  { num: '9', label: 'Risposta', icon: '📤' },
+  { num: '1', label: 'Inserisci la tua rotta', icon: '📍', desc: 'Origine, destinazione e orario. Da form o dalla chat AI.' },
+  { num: '2', label: 'Analizziamo il meteo lungo il percorso', icon: '🛰️', desc: 'Ogni 50 km, controlliamo precipitazioni, vento, visibilità, altitudine e tipo di strada.' },
+  { num: '3', label: 'Ricevi la predizione', icon: '⚡', desc: 'Ritardo in minuti, confidence score, rotta alternativa e consiglio operativo.' },
 ]
 
 const codeExample = `// POST /v1/predictions
@@ -51,35 +45,37 @@ const codeExample = `// POST /v1/predictions
 
 export function ComeFunzionaPage() {
   useEffect(() => {
-    document.title = 'Come Funziona — Logintel'
+    document.title = 'Route Intelligence — Logintel'
   }, [])
 
   return (
     <div>
       {/* Hero */}
-      <section className="pt-36 pb-20 px-6 text-center" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(59,130,246,0.1) 0%, transparent 60%), #0f172a' }}>
-        <span className="text-primary-400 text-[13px] font-bold uppercase tracking-[2px] font-outfit">Architettura</span>
-        <h1 className="text-[clamp(32px,5vw,52px)] font-extrabold text-slate-100 mt-3 mb-5 font-outfit tracking-tight">Come funziona Logintel</h1>
+      <section className="pt-36 pb-20 px-6 text-center" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(16,185,129,0.1) 0%, transparent 60%), #0f172a' }}>
+        <span className="text-primary-400 text-[13px] font-bold uppercase tracking-[2px] font-outfit">Route Intelligence</span>
+        <h1 className="text-[clamp(32px,5vw,52px)] font-extrabold text-slate-100 mt-3 mb-5 font-outfit tracking-tight">
+          Come funziona{' '}
+          <span className="bg-gradient-to-r from-primary-400 to-cyan-500 bg-clip-text text-transparent">Route Intelligence</span>
+        </h1>
         <p className="text-slate-400 text-lg max-w-[640px] mx-auto leading-relaxed font-outfit">
-          Un sistema di predizione intelligente che combina dati meteo, caratteristiche del percorso e feedback reale per stimare i ritardi prima della partenza.
+          Combiniamo dati meteo, caratteristiche del percorso e feedback reale per dirti quanto ritardo aspettarti — prima di partire.
         </p>
       </section>
 
-      {/* Flow */}
+      {/* Flow — 3 step visivi */}
       <section className="bg-[#0c1322] py-20 px-6">
         <div className="max-w-[1000px] mx-auto">
           <h2 className="text-[28px] font-extrabold text-slate-100 mb-12 text-center font-outfit">Il flusso di una predizione</h2>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {flowSteps.map((step, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <div className="bg-gradient-to-br from-dark-card to-dark rounded-xl border border-dark-border px-5 py-4 flex items-center gap-2.5 min-w-[180px]">
-                  <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-base shrink-0">{step.icon}</div>
-                  <div>
-                    <div className="text-[11px] text-slate-500 font-bold font-outfit">STEP {step.num}</div>
-                    <div className="text-[13px] text-slate-100 font-semibold font-outfit">{step.label}</div>
-                  </div>
+              <div key={i} className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-8 overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 to-cyan-500" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-[22px]">{step.icon}</div>
+                  <span className="text-sm font-bold text-slate-500 font-outfit">STEP {step.num}</span>
                 </div>
-                {i < flowSteps.length - 1 && <span className="text-slate-500 text-lg hidden sm:inline">→</span>}
+                <h3 className="text-xl font-bold text-slate-100 mb-2.5 font-outfit">{step.label}</h3>
+                <p className="text-slate-400 text-[15px] leading-relaxed font-outfit">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -112,8 +108,8 @@ export function ComeFunzionaPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { icon: '⛈️', label: 'Temporale al km 234', detail: 'Ore 16:30, severità alta', color: '#ef4444' },
-              { icon: '⏱️', label: '+27 min ritardo totale', detail: 'Confidence: 82%', color: '#f59e0b' },
-              { icon: '🔀', label: 'Alternativa via A14', detail: '19 minuti di risparmio', color: '#10b981' },
+              { icon: '⏱️', label: '+27 min ritardo totale', detail: 'Confidence: 82%', color: '#ef4444' },
+              { icon: '🔀', label: 'Alternativa via A14', detail: '19 minuti di risparmio', color: '#06b6d4' },
             ].map((ex, i) => (
               <div key={i} className="relative bg-gradient-to-br from-dark-card to-dark rounded-[14px] border border-dark-border p-6 overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: ex.color }} />
@@ -129,11 +125,13 @@ export function ComeFunzionaPage() {
       {/* API Snippet */}
       <section className="bg-dark py-20 px-6">
         <div className="max-w-[700px] mx-auto">
-          <h2 className="text-[28px] font-extrabold text-slate-100 mb-4 text-center font-outfit">Per sviluppatori</h2>
-          <p className="text-slate-400 text-center mb-8 text-base font-outfit">Un endpoint. Una predizione. Integrazione in 30 minuti.</p>
+          <h2 className="text-[28px] font-extrabold text-slate-100 mb-4 text-center font-outfit">Anche via API</h2>
+          <p className="text-slate-400 text-center mb-8 text-base font-outfit">
+            Logintel è prima di tutto un SaaS con interfaccia web. Ma per chi vuole integrare le predizioni nei propri sistemi, offriamo anche un'API REST.
+          </p>
 
           <div className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-7 overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-500 to-purple-500" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 to-cyan-500" />
             <div className="flex justify-between items-center mb-4">
               <span className="text-sm font-bold text-primary-400 font-outfit">API Example</span>
               <span className="text-xs text-slate-500 font-mono">POST /v1/predictions</span>
@@ -144,8 +142,8 @@ export function ComeFunzionaPage() {
           </div>
 
           <div className="text-center mt-8">
-            <Link to="/route-predictor" className="no-underline inline-block px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-[15px] font-outfit hover:shadow-lg hover:shadow-primary-500/25 transition-all">
-              Prova dal vivo →
+            <Link to="/prodotto" className="no-underline inline-block px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-[15px] font-outfit hover:shadow-lg hover:shadow-primary-500/25 transition-all">
+              Scopri il prodotto →
             </Link>
           </div>
         </div>

@@ -3,8 +3,9 @@ import { Link, useLocation } from 'react-router-dom'
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/come-funziona', label: 'Come Funziona' },
-  { to: '/route-predictor', label: 'Route Predictor' },
+  { to: '/prodotto', label: 'Prodotto' },
+  { to: '/pricing', label: 'Pricing' },
+  { to: '/chi-siamo', label: 'Chi Siamo' },
   { to: '/contatti', label: 'Contatti' },
 ]
 
@@ -18,7 +19,7 @@ export function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 no-underline">
           <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-lg">
-            🛰️
+            🚛
           </div>
           <span className="text-[22px] font-extrabold text-primary-500 tracking-tight font-outfit">
             Logintel
@@ -41,7 +42,7 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            to="/route-predictor"
+            to="/prodotto"
             className="ml-3 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-sm no-underline hover:shadow-lg hover:shadow-primary-500/25 transition-all"
           >
             Prova Gratis →

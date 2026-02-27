@@ -10,8 +10,8 @@ interface DarkCardProps {
 
 export function DarkCard({
   children,
-  gradientFrom = '#3b82f6',
-  gradientTo = '#8b5cf6',
+  gradientFrom = '#10b981',
+  gradientTo = '#06b6d4',
   className = '',
   onClick,
 }: DarkCardProps) {

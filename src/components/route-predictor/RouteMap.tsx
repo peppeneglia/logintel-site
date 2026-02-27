@@ -32,7 +32,7 @@ export function RouteMap({ result }: RouteMapProps) {
 
   return (
     <div className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-7 overflow-hidden mb-6">
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-500 to-purple-500" />
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 to-cyan-500" />
 
       <div className="flex justify-between items-center mb-5">
         <h3 className="text-lg font-bold text-slate-100 font-outfit">🗺️ Mappa Percorso</h3>
@@ -56,7 +56,7 @@ export function RouteMap({ result }: RouteMapProps) {
 
           <Polyline
             positions={positions}
-            pathOptions={{ color: '#3b82f6', weight: 3, opacity: 0.7 }}
+            pathOptions={{ color: '#10b981', weight: 3, opacity: 0.7 }}
           />
 
           {segments.map((seg, i) => (
@@ -98,7 +98,7 @@ export function RouteMap({ result }: RouteMapProps) {
       <div className="flex gap-5 justify-center mt-4 flex-wrap">
         {[
           { color: '#10b981', label: 'OK' },
-          { color: '#3b82f6', label: 'Lieve' },
+          { color: '#06b6d4', label: 'Lieve' },
           { color: '#f59e0b', label: 'Moderato' },
           { color: '#ef4444', label: 'Severo' },
         ].map((l, i) => (
