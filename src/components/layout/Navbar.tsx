@@ -18,10 +18,24 @@ export function Navbar() {
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 no-underline">
-          <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-lg">
-            🚛
-          </div>
-          <span className="text-[22px] font-extrabold text-primary-500 tracking-tight font-outfit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+               viewBox="0 0 24 24" fill="none"
+               strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <defs>
+              <linearGradient id="nav-logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#34d399" />
+                <stop offset="100%" stopColor="#06b6d4" />
+              </linearGradient>
+            </defs>
+            <g stroke="url(#nav-logo-gradient)">
+              <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+              <path d="M15 18h2"/>
+              <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+              <circle cx="17" cy="18" r="2"/>
+              <circle cx="7" cy="18" r="2"/>
+            </g>
+          </svg>
+          <span className="text-[22px] font-bold bg-gradient-to-r from-primary-400 to-cyan-500 bg-clip-text text-transparent font-outfit">
             Logintel
           </span>
         </Link>
@@ -41,12 +55,14 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
-          <Link
-            to="/prodotto"
+          <a
+            href="https://app.logintel.it"
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-3 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-sm no-underline hover:shadow-lg hover:shadow-primary-500/25 transition-all"
           >
             Prova Gratis →
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Toggle */}

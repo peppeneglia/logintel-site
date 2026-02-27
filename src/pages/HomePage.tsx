@@ -62,12 +62,12 @@ export function HomePage() {
           </p>
 
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/prodotto" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.4)] transition-all flex items-center gap-2">
-              Scopri il prodotto →
-            </Link>
             <Link to="/prodotto" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
               Come funziona
             </Link>
+            <a href="https://app.logintel.it" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.4)] transition-all flex items-center gap-2">
+              Prova adesso →
+            </a>
           </div>
 
           {/* Live stats */}

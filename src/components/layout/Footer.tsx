@@ -8,10 +8,24 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-base">
-                🚛
-              </div>
-              <span className="text-lg font-extrabold text-primary-500 font-outfit">Logintel</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                   viewBox="0 0 24 24" fill="none"
+                   strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <defs>
+                  <linearGradient id="footer-logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#34d399" />
+                    <stop offset="100%" stopColor="#06b6d4" />
+                  </linearGradient>
+                </defs>
+                <g stroke="url(#footer-logo-gradient)">
+                  <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+                  <path d="M15 18h2"/>
+                  <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+                  <circle cx="17" cy="18" r="2"/>
+                  <circle cx="7" cy="18" r="2"/>
+                </g>
+              </svg>
+              <span className="text-lg font-bold bg-gradient-to-r from-primary-400 to-cyan-500 bg-clip-text text-transparent font-outfit">Logintel</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
               L'assistente intelligente del fleet manager europeo. 6 moduli verticali per gestire ogni aspetto della tua flotta.
