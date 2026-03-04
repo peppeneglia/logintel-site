@@ -55,7 +55,7 @@ export function HomePage() {
             {' '}europeo
           </h1>
 
-          <p className="text-[19px] text-slate-400 mx-auto mb-10 leading-relaxed font-outfit whitespace-nowrap">
+          <p className="text-[19px] text-slate-400 max-w-[640px] mx-auto mb-10 leading-relaxed font-outfit">
             Rotte, costi, compliance e molto altro: tutto in un'unica app.
           </p>
 
