@@ -20,7 +20,7 @@ const team = [
     role: 'CTO',
     desc: 'Sviluppo tecnico, infrastruttura.',
     icon: '⚡',
-    color: '#06b6d4',
+    color: '#10b981',
   },
 ]
 
@@ -35,7 +35,7 @@ export function ChiSiamoPage() {
       <section className="pt-36 pb-20 px-6 text-center" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(16,185,129,0.1) 0%, transparent 60%), #0f172a' }}>
         <span className="text-primary-400 text-[13px] font-bold uppercase tracking-[2px] font-outfit">Chi siamo</span>
         <h1 className="text-[clamp(32px,5vw,52px)] font-extrabold text-slate-100 mt-3 mb-5 font-outfit tracking-tight">
-          Colmiamo il gap tra dati meteo e decisioni logistiche
+          L'assistente AI per chi gestisce flotte in Europa
         </h1>
       </section>
 
@@ -46,10 +46,10 @@ export function ChiSiamoPage() {
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 to-cyan-500" />
             <span className="text-primary-400 text-[13px] font-bold uppercase tracking-[2px] font-outfit">La nostra missione</span>
             <p className="text-slate-300 text-[17px] leading-relaxed mt-4 font-outfit">
-              Nessuno traduce i dati meteo in intelligence operativa per il trasporto merci su strada in Europa. I fleet manager ricevono previsioni generiche — pioggia, sole, vento — ma nessuno gli dice: "domani sulla tua rotta avrai 25 minuti di ritardo al km 234, prendi la A14".
+              I fleet manager europei gestiscono flotte con strumenti frammentati: fogli Excel, telefonate, app scollegate. Perdono tempo a cercare informazioni invece di prendere decisioni.
             </p>
             <p className="text-slate-300 text-[17px] leading-relaxed mt-4 font-outfit">
-              Noi facciamo esattamente questo. Trasformiamo dati meteo, caratteristiche del percorso e feedback reale in predizioni concrete e azionabili.
+              Logintel riunisce tutto in un'unica piattaforma con un assistente AI conversazionale. Rotte, costi, manutenzione, compliance, emissioni — chiedi e ricevi risposte operative in secondi.
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@ export function ChiSiamoPage() {
       <section className="bg-[#0c1322] py-20 px-6">
         <div className="max-w-[800px] mx-auto">
           <div className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-8 overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: '#06b6d4' }} />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-400 to-cyan-500" />
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-[22px]">🚀</div>
               <div>

@@ -10,8 +10,7 @@ function isValidEmail(email: string) {
 const infoCards = [
   { icon: '📧', title: 'Email', detail: 'info@logintel.it', color: '#10b981' },
   { icon: '📍', title: 'Sede', detail: 'Bari, Puglia, Italia', color: '#10b981' },
-  { icon: '🏢', title: 'Programma', detail: 'NextOrbit by Deloitte', color: '#06b6d4' },
-  { icon: '🚀', title: 'Stato', detail: 'Attivo e operativo', color: '#06b6d4' },
+  { icon: '🏢', title: 'Programma', detail: 'NextOrbit by Deloitte', color: '#10b981' },
 ]
 
 export function ContattiPage() {

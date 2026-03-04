@@ -1,0 +1,86 @@
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+
+const features = [
+  { icon: '📦', title: 'Tracking consegne', desc: 'Stato in tempo reale di ogni consegna: in transito, in ritardo, completata. Visibilità totale per te e per il cliente.' },
+  { icon: '🗺️', title: 'Ottimizzazione giri', desc: 'Sequenza di consegne ottimale per ridurre km, tempo e carburante. Ricalcolo dinamico in caso di imprevisti.' },
+  { icon: '⏱️', title: 'Tempi carico/scarico', desc: 'Monitora i tempi effettivi vs attesi presso magazzini e punti di consegna. Identifica i colli di bottiglia.' },
+  { icon: '📊', title: 'Performance corrieri', desc: 'KPI per autista: puntualità, efficienza, feedback clienti. Dati concreti per valutare e migliorare.' },
+]
+
+export function DeliveryIntelligencePage() {
+  useEffect(() => {
+    document.title = 'Delivery Intelligence — Logintel'
+  }, [])
+
+  return (
+    <div>
+      {/* Hero */}
+      <section className="pt-36 pb-20 px-6 text-center" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(6,182,212,0.1) 0%, transparent 60%), #0f172a' }}>
+        <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/25 rounded-full px-4 py-1.5 mb-5">
+          <span className="text-cyan-400 text-xs font-semibold font-outfit">In arrivo</span>
+        </div>
+        <h1 className="text-[clamp(32px,5vw,52px)] font-extrabold text-slate-100 mt-3 mb-5 font-outfit tracking-tight">
+          <span className="bg-gradient-to-r from-cyan-400 to-primary-400 bg-clip-text text-transparent">Delivery Intelligence</span>
+        </h1>
+        <p className="text-slate-400 text-lg max-w-[640px] mx-auto leading-relaxed font-outfit">
+          Ottimizzazione consegne, tracking ultimo miglio e gestione tempi di carico/scarico. Ogni pacco monitorato.
+        </p>
+      </section>
+
+      {/* Features */}
+      <section className="bg-[#0c1322] py-20 px-6">
+        <div className="max-w-[1100px] mx-auto">
+          <h2 className="text-[28px] font-extrabold text-slate-100 mb-12 text-center font-outfit">Funzionalità principali</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {features.map((f, i) => (
+              <div key={i} className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-7 overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: '#10b981' }} />
+                <div className="text-[32px] mb-4">{f.icon}</div>
+                <h3 className="text-lg font-bold text-slate-100 mb-2.5 font-outfit">{f.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed font-outfit">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use case */}
+      <section className="bg-dark py-20 px-6">
+        <div className="max-w-[800px] mx-auto">
+          <h2 className="text-[28px] font-extrabold text-slate-100 mb-6 text-center font-outfit">Caso d'uso</h2>
+          <div className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-8 overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: '#10b981' }} />
+            <p className="text-slate-300 text-base leading-relaxed font-outfit mb-4">
+              <strong className="text-slate-100">Scenario:</strong> 15 consegne da organizzare domani nella zona di Milano. Tre clienti hanno finestre di consegna strette, uno richiede sponda idraulica.
+            </p>
+            <p className="text-slate-300 text-base leading-relaxed font-outfit mb-4">
+              <strong className="text-slate-100">Con Delivery Intelligence:</strong> Il sistema calcola la sequenza ottimale, assegna il veicolo giusto e ti mostra l'ETA per ogni stop. Se un cliente cambia orario, ricalcola tutto in automatico.
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed font-outfit">
+              Meno km, meno tempo, clienti soddisfatti.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 px-6 text-center" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.12) 0%, transparent 70%), #0f172a' }}>
+        <div className="max-w-[600px] mx-auto">
+          <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/25 rounded-full px-5 py-2 mb-6">
+            <span className="text-cyan-400 text-sm font-semibold font-outfit">Modulo in sviluppo</span>
+          </div>
+          <h2 className="text-[clamp(28px,4vw,40px)] font-extrabold text-slate-100 mb-5 font-outfit tracking-tight">
+            Vuoi essere tra i primi a provarlo?
+          </h2>
+          <p className="text-slate-400 text-[17px] mb-9 leading-relaxed font-outfit">
+            Lascia i tuoi dati e ti avviseremo non appena Delivery Intelligence sarà disponibile.
+          </p>
+          <Link to="/contatti" className="no-underline inline-block px-9 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-primary-500 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(6,182,212,0.3)] transition-all">
+            Contattaci →
+          </Link>
+        </div>
+      </section>
+    </div>
+  )
+}

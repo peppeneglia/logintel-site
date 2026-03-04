@@ -3,52 +3,59 @@ import { Link } from 'react-router-dom'
 
 const tiers = [
   {
-    name: 'Starter',
+    name: 'Free',
     price: '€0',
     period: '/mese',
-    desc: 'Per provare la piattaforma senza impegno.',
+    desc: 'Per esplorare la piattaforma e le prime analisi.',
     features: [
       '1 utente',
-      '50 crediti/mese',
+      '10 crediti/mese',
       'Chat AI illimitata',
-      'Route Intelligence',
-      'Primo mese gratis su tutti i piani',
+      'Accesso a tutti i moduli',
+      'Visualizzazione base rotte',
     ],
     cta: 'Inizia gratis',
-    ctaLink: '/contatti',
+    ctaLink: 'https://logintel-app.vercel.app',
+    external: true,
     highlight: false,
   },
   {
     name: 'Pro',
-    price: '€79',
-    period: '/utente/mese',
+    price: '€49',
+    period: '/mese',
     desc: 'Per fleet manager che vogliono il massimo.',
     features: [
-      'Utenti illimitati',
-      '1.000 crediti/mese per utente',
-      'Tutti i moduli attivi',
-      'Storico completo',
-      'Supporto prioritario',
+      '1 utente',
+      '200 crediti/mese',
+      'Chat AI illimitata',
+      'Salvataggio rotte ricorrenti',
+      'Export PDF',
+      'Analytics base',
+      'Supporto email (24h)',
     ],
-    cta: 'Primo mese gratis',
+    cta: 'Scegli Pro',
     ctaLink: '/contatti',
+    external: false,
     highlight: true,
-    badge: 'Più popolare',
+    badge: 'Consigliato',
   },
   {
-    name: 'Team',
-    price: '€49',
+    name: 'Enterprise',
+    price: '€39',
     period: '/utente/mese (min 3)',
     desc: 'Per team di dispatcher e fleet manager.',
     features: [
       'Minimo 3 utenti',
-      '2.000+ crediti/utente/mese',
-      'Accesso API per modulo',
-      'Alert email',
-      'Dashboard condivisa',
+      '500+ crediti/utente/mese',
+      'Rotte condivise nel team',
+      'Export PDF e CSV',
+      'Analytics e dashboard team',
+      'Controlli admin',
+      'Supporto prioritario (12h)',
     ],
     cta: 'Contattaci',
     ctaLink: '/contatti',
+    external: false,
     highlight: false,
   },
 ]
@@ -56,7 +63,7 @@ const tiers = [
 const faqs = [
   {
     q: 'Cos\'è un credito?',
-    a: 'I crediti sono l\'unità di consumo della piattaforma. Ogni attività (predizione, confronto percorsi, report, pianificazione) consuma un numero di crediti in base alla sua complessità. La chat AI generica è sempre gratuita.',
+    a: 'I crediti sono l\'unità di consumo della piattaforma. Ogni attività (analisi rotta, confronto percorsi, report, pianificazione) consuma crediti in base alla complessità. La chat AI generica è sempre gratuita e illimitata.',
   },
   {
     q: 'Cosa succede se finisco i crediti?',
@@ -67,8 +74,12 @@ const faqs = [
     a: 'Sì, in qualsiasi momento. Il downgrade diventa effettivo dal mese successivo. I crediti non utilizzati non sono rimborsabili.',
   },
   {
-    q: 'Serve una carta di credito per iniziare?',
-    a: 'No. Il primo mese è completamente gratuito su tutti i piani. Nessuna carta richiesta. Provi e decidi.',
+    q: 'Esiste un piano annuale?',
+    a: 'Sì. Con il billing annuale risparmi 2 mesi: Pro a €490/anno (invece di €588) e Enterprise a €390/utente/anno (invece di €468).',
+  },
+  {
+    q: 'Avete un\'API?',
+    a: 'Sì. L\'Enterprise API è pensata per integrare le nostre analisi nei tuoi sistemi (TMS, ERP). Pricing personalizzato — contattaci per saperne di più.',
   },
 ]
 
@@ -88,11 +99,8 @@ export function PricingPage() {
           Pricing trasparente. Niente "Contact Us".
         </h1>
         <p className="text-slate-400 text-lg max-w-[640px] mx-auto leading-relaxed font-outfit">
-          Sappiamo che i competitor nascondono i prezzi. Noi no.
+          Sappiamo che i competitor nascondono i prezzi. Noi no. Piano Free per sempre, upgrade quando vuoi.
         </p>
-        <div className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/25 rounded-full px-5 py-2 mt-6">
-          <span className="text-primary-400 text-[13px] font-semibold font-outfit">Primo mese gratuito su tutti i piani — nessuna carta richiesta</span>
-        </div>
       </section>
 
       {/* 3 Tier Cards */}
@@ -123,26 +131,45 @@ export function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  to={tier.ctaLink}
-                  className={`no-underline block text-center px-6 py-3.5 rounded-xl font-bold text-[15px] font-outfit transition-all ${
-                    tier.highlight
-                      ? 'bg-gradient-to-r from-primary-500 to-primary-700 text-white shadow-[0_4px_24px_rgba(16,185,129,0.3)]'
-                      : 'bg-white/5 border border-white/12 text-slate-100 hover:bg-white/10'
-                  }`}
-                >
-                  {tier.cta}
-                </Link>
+                {tier.external ? (
+                  <a
+                    href={tier.ctaLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`no-underline block text-center px-6 py-3.5 rounded-xl font-bold text-[15px] font-outfit transition-all ${
+                      tier.highlight
+                        ? 'bg-gradient-to-r from-primary-500 to-primary-700 text-white shadow-[0_4px_24px_rgba(16,185,129,0.3)]'
+                        : 'bg-white/5 border border-white/12 text-slate-100 hover:bg-white/10'
+                    }`}
+                  >
+                    {tier.cta}
+                  </a>
+                ) : (
+                  <Link
+                    to={tier.ctaLink}
+                    className={`no-underline block text-center px-6 py-3.5 rounded-xl font-bold text-[15px] font-outfit transition-all ${
+                      tier.highlight
+                        ? 'bg-gradient-to-r from-primary-500 to-primary-700 text-white shadow-[0_4px_24px_rgba(16,185,129,0.3)]'
+                        : 'bg-white/5 border border-white/12 text-slate-100 hover:bg-white/10'
+                    }`}
+                  >
+                    {tier.cta}
+                  </Link>
+                )}
               </div>
             ))}
           </div>
 
-          {/* Crediti extra */}
-          <div className="mt-8 text-center">
+          {/* Enterprise API + Crediti extra */}
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             <div className="inline-flex items-center gap-2 bg-dark-card border border-dark-border rounded-full px-6 py-3">
               <span className="text-slate-400 text-sm font-outfit">Crediti extra:</span>
-              <span className="text-slate-100 text-sm font-bold font-outfit">€0,25 per credito aggiuntivo</span>
+              <span className="text-slate-100 text-sm font-bold font-outfit">a partire da €0,16/credito</span>
             </div>
+            <Link to="/contatti" className="no-underline inline-flex items-center gap-2 bg-dark-card border border-dark-border rounded-full px-6 py-3 hover:bg-white/5 transition-all">
+              <span className="text-slate-400 text-sm font-outfit">Enterprise API?</span>
+              <span className="text-primary-400 text-sm font-bold font-outfit">Pricing personalizzato →</span>
+            </Link>
           </div>
         </div>
       </section>

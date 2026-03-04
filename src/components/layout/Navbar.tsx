@@ -3,7 +3,8 @@ import { Link, useLocation } from 'react-router-dom'
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/prodotto', label: 'Prodotto' },
+  { to: '/web-app', label: 'Web App' },
+  { to: '/moduli', label: 'Moduli' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/chi-siamo', label: 'Chi Siamo' },
   { to: '/contatti', label: 'Contatti' },
@@ -14,7 +15,7 @@ export function Navbar() {
   const location = useLocation()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/92 backdrop-blur-xl border-b border-dark-border/50">
+    <nav className="select-none fixed top-0 left-0 right-0 z-50 bg-dark/92 backdrop-blur-xl border-b border-dark-border/50">
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 no-underline">
@@ -56,12 +57,12 @@ export function Navbar() {
             </Link>
           ))}
           <a
-            href="https://app.logintel.it"
+            href="https://logintel-app.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-3 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-sm no-underline hover:shadow-lg hover:shadow-primary-500/25 transition-all"
           >
-            Prova Gratis →
+            Guarda demo →
           </a>
         </div>
 
