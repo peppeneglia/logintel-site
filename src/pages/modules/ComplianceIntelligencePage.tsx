@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 const features = [
   { icon: '📋', title: 'Ore di guida', desc: 'Monitoraggio automatico delle ore di guida giornaliere e settimanali. Alert prima di sforare i limiti europei.' },
@@ -17,8 +16,9 @@ export function ComplianceIntelligencePage() {
     <div>
       {/* Hero */}
       <section className="pt-36 pb-20 px-6 text-center" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(6,182,212,0.1) 0%, transparent 60%), #0f172a' }}>
-        <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/25 rounded-full px-4 py-1.5 mb-5">
-          <span className="text-cyan-400 text-xs font-semibold font-outfit">In arrivo</span>
+        <div className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/25 rounded-full px-4 py-1.5 mb-5">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="text-primary-400 text-xs font-semibold font-outfit">Modulo attivo</span>
         </div>
         <h1 className="text-[clamp(32px,5vw,52px)] font-extrabold text-slate-100 mt-3 mb-5 font-outfit tracking-tight">
           <span className="bg-gradient-to-r from-cyan-400 to-primary-400 bg-clip-text text-transparent">Compliance Intelligence</span>
@@ -67,18 +67,20 @@ export function ComplianceIntelligencePage() {
       {/* CTA */}
       <section className="py-24 px-6 text-center" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.12) 0%, transparent 70%), #0f172a' }}>
         <div className="max-w-[600px] mx-auto">
-          <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/25 rounded-full px-5 py-2 mb-6">
-            <span className="text-cyan-400 text-sm font-semibold font-outfit">Modulo in sviluppo</span>
-          </div>
           <h2 className="text-[clamp(28px,4vw,40px)] font-extrabold text-slate-100 mb-5 font-outfit tracking-tight">
-            Vuoi essere tra i primi a provarlo?
+            Prova Compliance Intelligence
           </h2>
           <p className="text-slate-400 text-[17px] mb-9 leading-relaxed font-outfit">
-            Lascia i tuoi dati e ti avviseremo non appena Compliance Intelligence sarà disponibile.
+            Monitora ore di guida e normative in automatico. Provalo subito nella web app.
           </p>
-          <Link to="/contatti" className="no-underline inline-block px-9 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-primary-500 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(6,182,212,0.3)] transition-all">
-            Contattaci →
-          </Link>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <a href="https://app.logintel.it?demo=true" target="_blank" rel="noopener noreferrer" className="no-underline inline-block px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
+              Guarda la demo
+            </a>
+            <a href="https://app.logintel.it" target="_blank" rel="noopener noreferrer" className="no-underline inline-block px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
+              Accedi alla web app
+            </a>
+          </div>
         </div>
       </section>
     </div>

@@ -15,8 +15,8 @@ const modules = [
     icon: '🚛',
     title: 'Fleet Intelligence',
     desc: 'Gestione veicoli, manutenzione preventiva, allocazione risorse e analisi costi flotta.',
-    color: '#06b6d4',
-    ready: false,
+    color: '#10b981',
+    ready: true,
     link: '/fleet-intelligence',
     features: ['Dashboard veicoli', 'Alert manutenzione', 'Allocazione risorse', 'Analisi costi flotta'],
   },
@@ -24,8 +24,8 @@ const modules = [
     icon: '📦',
     title: 'Delivery Intelligence',
     desc: 'Ottimizzazione consegne, tracking ultimo miglio e gestione tempi di carico/scarico.',
-    color: '#06b6d4',
-    ready: false,
+    color: '#10b981',
+    ready: true,
     link: '/delivery-intelligence',
     features: ['Tracking consegne', 'Ottimizzazione giri', 'Tempi carico/scarico', 'Performance corrieri'],
   },
@@ -33,8 +33,8 @@ const modules = [
     icon: '📋',
     title: 'Compliance Intelligence',
     desc: 'Monitoraggio automatico ore di guida, riposi obbligatori e normative europee.',
-    color: '#06b6d4',
-    ready: false,
+    color: '#10b981',
+    ready: true,
     link: '/compliance-intelligence',
     features: ['Ore di guida', 'Riposi obbligatori', 'Alert scadenze', 'Report normativo'],
   },
@@ -42,8 +42,8 @@ const modules = [
     icon: '💰',
     title: 'Finance Intelligence',
     desc: 'Analisi costi carburante, pedaggi e margini per rotta. Controllo spese in tempo reale.',
-    color: '#06b6d4',
-    ready: false,
+    color: '#10b981',
+    ready: true,
     link: '/finance-intelligence',
     features: ['Costi carburante', 'Pedaggi per rotta', 'Margini operativi', 'Budget tracking'],
   },
@@ -51,8 +51,8 @@ const modules = [
     icon: '🌱',
     title: 'Carbon Intelligence',
     desc: 'Calcolo e ottimizzazione dell\'impronta CO₂ per ogni trasporto. Report ESG automatici.',
-    color: '#06b6d4',
-    ready: false,
+    color: '#10b981',
+    ready: true,
     link: '/carbon-intelligence',
     features: ['Calcolo CO₂ per rotta', 'Ottimizzazione emissioni', 'Report ESG', 'Benchmark flotta'],
   },
@@ -74,7 +74,7 @@ export function ModuliPage() {
           {' '}di Logintel
         </h1>
         <p className="text-slate-400 text-lg max-w-[640px] mx-auto leading-relaxed font-outfit">
-          Ogni modulo copre un aspetto del fleet management. Route Intelligence è operativo — gli altri sono in fase di sviluppo.
+          Ogni modulo copre un aspetto del fleet management. Tutti e 6 i moduli sono operativi.
         </p>
       </section>
 
@@ -124,8 +124,11 @@ export function ModuliPage() {
             Piano Free per sempre. Upgrade quando vuoi, downgrade quando vuoi.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="https://logintel-app.vercel.app" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
-              Guarda demo
+            <a href="https://app.logintel.it?demo=true" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
+              Guarda la demo
+            </a>
+            <a href="https://app.logintel.it" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
+              Accedi alla web app
             </a>
             <Link to="/pricing" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
               Vedi i piani

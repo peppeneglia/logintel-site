@@ -57,12 +57,20 @@ export function Navbar() {
             </Link>
           ))}
           <a
-            href="https://logintel-app.vercel.app"
+            href="https://app.logintel.it?demo=true"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-3 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-sm no-underline hover:shadow-lg hover:shadow-primary-500/25 transition-all"
+            className="ml-3 px-5 py-2.5 rounded-lg bg-white/5 border border-white/12 text-slate-100 font-semibold text-sm no-underline hover:bg-white/10 transition-all"
           >
-            Guarda demo →
+            Guarda la demo
+          </a>
+          <a
+            href="https://app.logintel.it"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-1.5 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-sm no-underline hover:shadow-lg hover:shadow-primary-500/25 transition-all"
+          >
+            Accedi alla web app
           </a>
         </div>
 

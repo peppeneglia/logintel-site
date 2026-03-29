@@ -9,11 +9,11 @@ const steps = [
 
 const modules = [
   { icon: '📍', title: 'Route Intelligence', desc: 'Predizioni meteo-correlate, rotte alternative, confronto percorsi e report ETA realistici.', color: '#10b981', ready: true, link: '/route-intelligence' },
-  { icon: '🚛', title: 'Fleet Intelligence', desc: 'Gestione veicoli, manutenzione preventiva e allocazione risorse della flotta.', color: '#06b6d4', ready: false, link: '/fleet-intelligence' },
-  { icon: '📦', title: 'Delivery Intelligence', desc: 'Ottimizzazione consegne e tracking ultimo miglio.', color: '#06b6d4', ready: false, link: '/delivery-intelligence' },
-  { icon: '📋', title: 'Compliance Intelligence', desc: 'Monitoraggio ore di guida, riposi e normative europee.', color: '#06b6d4', ready: false, link: '/compliance-intelligence' },
-  { icon: '💰', title: 'Finance Intelligence', desc: 'Analisi costi carburante, pedaggi e margini per rotta.', color: '#06b6d4', ready: false, link: '/finance-intelligence' },
-  { icon: '🌱', title: 'Carbon Intelligence', desc: 'Calcolo e ottimizzazione dell\'impronta CO₂ per trasporto.', color: '#06b6d4', ready: false, link: '/carbon-intelligence' },
+  { icon: '🚛', title: 'Fleet Intelligence', desc: 'Gestione veicoli, manutenzione preventiva e allocazione risorse della flotta.', color: '#10b981', ready: true, link: '/fleet-intelligence' },
+  { icon: '📦', title: 'Delivery Intelligence', desc: 'Ottimizzazione consegne e tracking ultimo miglio.', color: '#10b981', ready: true, link: '/delivery-intelligence' },
+  { icon: '📋', title: 'Compliance Intelligence', desc: 'Monitoraggio ore di guida, riposi e normative europee.', color: '#10b981', ready: true, link: '/compliance-intelligence' },
+  { icon: '💰', title: 'Finance Intelligence', desc: 'Analisi costi carburante, pedaggi e margini per rotta.', color: '#10b981', ready: true, link: '/finance-intelligence' },
+  { icon: '🌱', title: 'Carbon Intelligence', desc: 'Calcolo e ottimizzazione dell\'impronta CO₂ per trasporto.', color: '#10b981', ready: true, link: '/carbon-intelligence' },
 ]
 
 const trustCards = [
@@ -60,11 +60,11 @@ export function HomePage() {
           </p>
 
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/web-app" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
-              Scopri la Web App
-            </Link>
-            <a href="https://logintel-app.vercel.app" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.4)] transition-all flex items-center gap-2">
-              Guarda demo →
+            <a href="https://app.logintel.it?demo=true" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
+              Guarda la demo
+            </a>
+            <a href="https://app.logintel.it" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.4)] transition-all flex items-center gap-2">
+              Accedi alla web app
             </a>
           </div>
 
@@ -206,8 +206,11 @@ export function HomePage() {
             Piano Free per sempre. Chat AI illimitata e 10 crediti al mese inclusi.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="https://logintel-app.vercel.app" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
-              Guarda demo
+            <a href="https://app.logintel.it?demo=true" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
+              Guarda la demo
+            </a>
+            <a href="https://app.logintel.it" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
+              Accedi alla web app
             </a>
             <Link to="/pricing" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
               Vedi i piani

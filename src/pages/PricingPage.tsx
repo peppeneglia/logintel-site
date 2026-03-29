@@ -15,7 +15,7 @@ const tiers = [
       'Visualizzazione base rotte',
     ],
     cta: 'Inizia gratis',
-    ctaLink: 'https://logintel-app.vercel.app',
+    ctaLink: 'https://app.logintel.it',
     external: true,
     highlight: false,
   },
