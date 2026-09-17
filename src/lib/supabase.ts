@@ -1,9 +1,11 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-export const supabase =
-  supabaseUrl && supabaseKey && !supabaseUrl.startsWith('your-')
-    ? createClient(supabaseUrl, supabaseKey)
-    : null
+const isConfigured = Boolean(supabaseUrl && supabaseKey && supabaseUrl.startsWith('https://'))
+
+/** Supabase client for lead capture, or `null` when the env vars are not set. */
+export const supabase: SupabaseClient | null = isConfigured
+  ? createClient(supabaseUrl as string, supabaseKey as string)
+  : null

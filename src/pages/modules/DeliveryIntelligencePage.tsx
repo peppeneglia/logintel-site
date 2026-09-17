@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { usePageTitle } from '../../hooks/usePageTitle'
+import { APP_URL, APP_DEMO_URL } from '../../config'
 
 const features = [
   { icon: '📦', title: 'Tracking consegne', desc: 'Stato in tempo reale di ogni consegna: in transito, in ritardo, completata. Visibilità totale per te e per il cliente.' },
@@ -8,9 +9,7 @@ const features = [
 ]
 
 export function DeliveryIntelligencePage() {
-  useEffect(() => {
-    document.title = 'Delivery Intelligence — Logintel'
-  }, [])
+  usePageTitle('Delivery Intelligence — Logintel')
 
   return (
     <div>
@@ -33,8 +32,8 @@ export function DeliveryIntelligencePage() {
         <div className="max-w-[1100px] mx-auto">
           <h2 className="text-[28px] font-extrabold text-slate-100 mb-12 text-center font-outfit">Funzionalità principali</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {features.map((f, i) => (
-              <div key={i} className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-7 overflow-hidden">
+            {features.map((f) => (
+              <div key={f.title} className="relative bg-gradient-to-br from-dark-card to-dark rounded-2xl border border-dark-border p-7 overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: '#10b981' }} />
                 <div className="text-[32px] mb-4">{f.icon}</div>
                 <h3 className="text-lg font-bold text-slate-100 mb-2.5 font-outfit">{f.title}</h3>
@@ -74,10 +73,10 @@ export function DeliveryIntelligencePage() {
             Ottimizza le tue consegne. Provalo subito nella web app.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="https://logintel-app.vercel.app?demo=true" target="_blank" rel="noopener noreferrer" className="no-underline inline-block px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
+            <a href={APP_DEMO_URL} target="_blank" rel="noopener noreferrer" className="no-underline inline-block px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
               Guarda la demo
             </a>
-            <a href="https://logintel-app.vercel.app" target="_blank" rel="noopener noreferrer" className="no-underline inline-block px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
+            <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="no-underline inline-block px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
               Accedi alla web app
             </a>
           </div>

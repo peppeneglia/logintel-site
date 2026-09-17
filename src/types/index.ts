@@ -1,3 +1,5 @@
+export type Severity = 'none' | 'low' | 'moderate' | 'high'
+
 export interface RoutePoint {
   lat: number
   lon: number
@@ -11,7 +13,7 @@ export interface Segment {
   lon: number
   weather: string
   delay: number
-  severity: 'none' | 'low' | 'moderate' | 'high'
+  severity: Severity
   temp: number
   wind: number
 }
@@ -36,7 +38,7 @@ export interface PredictionResult {
   prediction: {
     total_delay_minutes: number
     confidence_score: number
-    severity: 'none' | 'low' | 'moderate' | 'high'
+    severity: Severity
     adjusted_duration_minutes: number
     segments: Segment[]
   }

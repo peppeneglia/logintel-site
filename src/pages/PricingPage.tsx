@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { usePageTitle } from '../hooks/usePageTitle'
+import { APP_URL } from '../config'
 
 const tiers = [
   {
@@ -15,7 +17,7 @@ const tiers = [
       'Visualizzazione base rotte',
     ],
     cta: 'Inizia gratis',
-    ctaLink: 'https://logintel-app.vercel.app',
+    ctaLink: APP_URL,
     external: true,
     highlight: false,
   },
@@ -86,9 +88,7 @@ const faqs = [
 export function PricingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
-  useEffect(() => {
-    document.title = 'Pricing — Logintel'
-  }, [])
+  usePageTitle('Pricing — Logintel')
 
   return (
     <div>

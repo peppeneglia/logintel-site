@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { APP_URL, APP_DEMO_URL } from '../../config'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -7,7 +8,6 @@ const links = [
   { to: '/moduli', label: 'Moduli' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/chi-siamo', label: 'Chi Siamo' },
-  { to: '/contatti', label: 'Contatti' },
 ]
 
 export function Navbar() {
@@ -20,7 +20,7 @@ export function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 no-underline">
           <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
-               viewBox="0 0 24 24" fill="none"
+               viewBox="0 0 24 24" fill="none" aria-hidden="true"
                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <defs>
               <linearGradient id="nav-logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -57,7 +57,7 @@ export function Navbar() {
             </Link>
           ))}
           <a
-            href="https://logintel-app.vercel.app?demo=true"
+            href={APP_DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="ml-3 px-5 py-2.5 rounded-lg bg-white/5 border border-white/12 text-slate-100 font-semibold text-sm no-underline hover:bg-white/10 transition-all"
@@ -65,7 +65,7 @@ export function Navbar() {
             Guarda la demo
           </a>
           <a
-            href="https://logintel-app.vercel.app"
+            href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="ml-1.5 px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-sm no-underline hover:shadow-lg hover:shadow-primary-500/25 transition-all"
@@ -76,13 +76,16 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          onClick={() => setOpen(!open)}
+          type="button"
+          onClick={() => setOpen((prev) => !prev)}
+          aria-label={open ? 'Chiudi menu' : 'Apri menu'}
+          aria-expanded={open}
           className="lg:hidden text-slate-400 bg-transparent border-none cursor-pointer"
         >
           {open ? (
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" /></svg>
           ) : (
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
           )}
         </button>
       </div>
@@ -102,6 +105,26 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
+          <div className="flex flex-col gap-2.5 mt-4">
+            <a
+              href={APP_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="block text-center px-5 py-3 rounded-lg bg-white/5 border border-white/12 text-slate-100 font-semibold text-sm no-underline"
+            >
+              Guarda la demo
+            </a>
+            <a
+              href={APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="block text-center px-5 py-3 rounded-lg bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-sm no-underline"
+            >
+              Accedi alla web app
+            </a>
+          </div>
         </div>
       )}
     </nav>

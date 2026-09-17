@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const team = [
   {
@@ -25,9 +25,7 @@ const team = [
 ]
 
 export function ChiSiamoPage() {
-  useEffect(() => {
-    document.title = 'Chi Siamo — Logintel'
-  }, [])
+  usePageTitle('Chi Siamo — Logintel')
 
   return (
     <div>

@@ -1,13 +1,30 @@
-import { PredictionResult } from '../../types'
+import type { PredictionResult, Segment } from '../../types'
 import { severityColor, severityLabel } from '../../utils/severity'
 
 interface ResultCardsProps {
   result: PredictionResult
 }
 
+function confidenceLabel(score: number): string {
+  if (score >= 0.8) return 'Affidabilità alta'
+  if (score >= 0.6) return 'Affidabilità buona'
+  return 'Affidabilità bassa'
+}
+
+function worstSegment(segments: Segment[]): Segment | null {
+  return segments.reduce<Segment | null>(
+    (worst, seg) => (worst === null || seg.delay > worst.delay ? seg : worst),
+    null,
+  )
+}
+
 export function ResultCards({ result }: ResultCardsProps) {
   const p = result.prediction
   const alt = result.alternative
+
+  const worst = worstSegment(p.segments)
+  const severityDetail =
+    worst && worst.delay > 0 ? `${worst.weather} a ${worst.name}` : 'Nessuna criticità rilevata'
 
   const cards = [
     {
@@ -15,22 +32,25 @@ export function ResultCards({ result }: ResultCardsProps) {
       value: `+${p.total_delay_minutes} min`,
       detail: `su ${result.route.distance_km} km`,
       color: severityColor(p.severity),
+      highlight: false,
     },
     {
       label: 'CONFIDENCE',
       value: `${Math.round(p.confidence_score * 100)}%`,
-      detail: 'Affidabilità buona',
+      detail: confidenceLabel(p.confidence_score),
       color: '#10b981',
+      highlight: false,
     },
     {
       label: 'SEVERITÀ',
       value: severityLabel(p.severity),
-      detail: 'Temporale rilevato',
+      detail: severityDetail,
       color: severityColor(p.severity),
+      highlight: false,
     },
     {
       label: 'ALTERNATIVA',
-      value: `-${alt.savings_minutes} min`,
+      value: alt.savings_minutes > 0 ? `-${alt.savings_minutes} min` : 'Nessuna',
       detail: alt.name,
       color: '#10b981',
       highlight: true,
@@ -39,9 +59,9 @@ export function ResultCards({ result }: ResultCardsProps) {
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-      {cards.map((card, i) => (
+      {cards.map((card) => (
         <div
-          key={i}
+          key={card.label}
           className={`relative rounded-2xl border p-6 overflow-hidden bg-gradient-to-br ${
             card.highlight
               ? 'from-emerald-500/10 to-dark border-emerald-500/30'

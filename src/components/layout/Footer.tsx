@@ -9,7 +9,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
-                   viewBox="0 0 24 24" fill="none"
+                   viewBox="0 0 24 24" fill="none" aria-hidden="true"
                    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <defs>
                   <linearGradient id="footer-logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -61,14 +61,13 @@ export function Footer() {
             <div className="space-y-2.5">
               <Link to="/chi-siamo" className="block text-slate-400 text-sm no-underline hover:text-primary-400 transition-colors">Chi Siamo</Link>
               <Link to="/contatti" className="block text-slate-400 text-sm no-underline hover:text-primary-400 transition-colors">Contatti</Link>
-              <p className="text-slate-400 text-sm">info@logintel.it</p>
               <p className="text-slate-400 text-sm">Bari, Italia</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-dark-border pt-6 flex flex-wrap justify-between items-center gap-3">
-          <p className="text-slate-500 text-xs">© 2026 Logintel. Tutti i diritti riservati.</p>
+          <p className="text-slate-500 text-xs">© {new Date().getFullYear()} Logintel. Tutti i diritti riservati.</p>
           <p className="text-slate-500 text-xs">Made with 🚛 in Puglia</p>
         </div>
       </div>

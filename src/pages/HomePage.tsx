@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { usePageTitle } from '../hooks/usePageTitle'
+import { APP_URL, APP_DEMO_URL } from '../config'
 
 const steps = [
   { icon: '💬', title: 'Apri la chat', desc: 'Accedi alla web app e scrivi quello che ti serve in linguaggio naturale. Come parlare con un collega.' },
@@ -24,9 +25,7 @@ const trustCards = [
 ]
 
 export function HomePage() {
-  useEffect(() => {
-    document.title = 'Logintel — L\'assistente intelligente del fleet manager europeo'
-  }, [])
+  usePageTitle('Logintel — L\'assistente intelligente del fleet manager europeo')
 
   return (
     <div>
@@ -60,10 +59,10 @@ export function HomePage() {
           </p>
 
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="https://logintel-app.vercel.app?demo=true" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
+            <a href={APP_DEMO_URL} target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
               Guarda la demo
             </a>
-            <a href="https://logintel-app.vercel.app" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.4)] transition-all flex items-center gap-2">
+            <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.4)] transition-all flex items-center gap-2">
               Accedi alla web app
             </a>
           </div>
@@ -206,10 +205,10 @@ export function HomePage() {
             Piano Free per sempre. Chat AI illimitata e 10 crediti al mese inclusi.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href="https://logintel-app.vercel.app?demo=true" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
+            <a href={APP_DEMO_URL} target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">
               Guarda la demo
             </a>
-            <a href="https://logintel-app.vercel.app" target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
+            <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="no-underline px-9 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-700 text-white font-bold text-base font-outfit shadow-[0_4px_24px_rgba(16,185,129,0.3)] transition-all">
               Accedi alla web app
             </a>
             <Link to="/pricing" className="no-underline px-9 py-4 rounded-xl bg-white/5 border border-white/12 text-slate-100 font-semibold text-base font-outfit hover:bg-white/10 transition-all">

@@ -1,4 +1,4 @@
-import { Segment } from '../../types'
+import type { Segment } from '../../types'
 import { severityColor, severityBg, severityBorderTailwind } from '../../utils/severity'
 
 interface SegmentBreakdownProps {
@@ -14,9 +14,9 @@ export function SegmentBreakdown({ segments }: SegmentBreakdownProps) {
       </h3>
 
       <div className="space-y-2.5">
-        {segments.map((seg, i) => (
+        {segments.map((seg) => (
           <div
-            key={i}
+            key={`${seg.km}-${seg.name}`}
             className={`rounded-[10px] border ${severityBorderTailwind(seg.severity)} px-4 py-3`}
             style={{
               background: seg.delay > 0 ? severityBg(seg.severity) : 'rgba(255,255,255,0.02)',

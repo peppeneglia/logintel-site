@@ -1,4 +1,4 @@
-import { PredictionResult } from '../types'
+import type { PredictionResult } from '../types'
 
 export const MOCK_PREDICTION: PredictionResult = {
   id: 'pred_abc123',
